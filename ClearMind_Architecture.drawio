@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- TITLE -->
+    <mxCell id="title" value="ClearMind Behavioral Health Clinic — Big Data Pipeline" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="200" y="20" width="1200" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="subtitle" value="ISM6362 · Big Data and Cloud-Based Tools · Seattle Pacific University · Spring 2026 · Lekhya" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#666666;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="200" y="55" width="1200" height="25" as="geometry" />
+    </mxCell>
+
+    <!-- AWS CLOUD BOUNDARY BOX -->
+    <mxCell id="aws_box" value="" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=#FFFFFF;verticalLabelPosition=top;verticalAlign=bottom;align=center;html=1;fontSize=12;fontStyle=1;spacingTop=0;" vertex="1" parent="1">
+      <mxGeometry x="80" y="90" width="1430" height="700" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════
+    COMPONENT 1 — Data Source (Kaggle CSV + Patient Portal)
+    ═══════════════════════════════════════════════ -->
+    <mxCell id="num1" value="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;fontColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="160" width="28" height="28" as="geometry" />
+    </mxCell>
+    <mxCell id="c1" value="Data Sources" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#232F3E;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.general;" vertex="1" parent="1">
+      <mxGeometry x="100" y="200" width="60" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="c1_label" value="Kaggle CSV&#xa;110,527 rows&#xa;+ Patient Portal" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="75" y="268" width="110" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════
+    COMPONENT 2 — Amazon S3 (Raw Data)
+    ═══════════════════════════════════════════════ -->
+    <mxCell id="num2" value="2" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;fontColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="260" y="160" width="28" height="28" as="geometry" />
+    </mxCell>
+    <mxCell id="c2" value="Amazon S3" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#7AA116;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;" vertex="1" parent="1">
+      <mxGeometry x="260" y="200" width="60" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="c2_label" value="Raw Data&#xa;s3://lekhyaclearmindbehavioralhealthclinic&#xa;/HealthClinic_Data" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="220" y="268" width="140" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════
+    COMPONENT 3 — Amazon Kinesis (Streaming Ingestion)
+    ═══════════════════════════════════════════════ -->
+    <mxCell id="num3" value="3" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;fontColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="260" y="450" width="28" height="28" as="geometry" />
+    </mxCell>
+    <mxCell id="c3" value="Amazon Kinesis" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#E7157B;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.kinesis;" vertex="1" parent="1">
+      <mxGeometry x="260" y="490" width="60" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="c3_label" value="Kinesis Stream&#xa;mood-checkins&#xa;topic" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="235" y="558" width="110" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════
+    COMPONENT 4 — Databricks (Stream Processing)
+    ═══════════════════════════════════════════════ -->
+    <mxCell id="num4" value="4" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;fontColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="450" y="450" width="28" height="28" as="geometry" />
+    </mxCell>
+    <mxCell id="c4" value="Databricks" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#E7157B;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.emr;" vertex="1" parent="1">
+      <mxGeometry x="450" y="490" width="60" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="c4_label" value="Stream Processing&#xa;Spark Structured&#xa;Streaming" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="425" y="558" width="110" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════
+    COMPONENT 5 — Databricks (Batch Processing)
+    ═══════════════════════════════════════════════ -->
+    <mxCell id="num5" value="5" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;fontColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="450" y="160" width="28" height="28" as="geometry" />
+    </mxCell>
+    <mxCell id="c5" value="Databricks" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#E7157B;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.emr;" vertex="1" parent="1">
+      <mxGeometry x="450" y="200" width="60" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="c5_label" value="Batch Processing&#xa;PySpark KPI&#xa;Computation" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="425" y="268" width="110" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════
+    COMPONENT 6 — Amazon S3 (Processed Data)
+    ═══════════════════════════════════════════════ -->
+    <mxCell id="num6" value="6" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;fontColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="650" y="160" width="28" height="28" as="geometry" />
+    </mxCell>
+    <mxCell id="c6" value="Amazon S3" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#7AA116;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;" vertex="1" parent="1">
+      <mxGeometry x="650" y="200" width="60" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="c6_label" value="KPI Data&#xa;kpi1 · kpi2 · kpi3&#xa;Parquet format" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="620" y="268" width="120" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════
+    COMPONENT 7 — Amazon S3 (Alert Data)
+    ═══════════════════════════════════════════════ -->
+    <mxCell id="num7" value="7" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;fontColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="650" y="450" width="28" height="28" as="geometry" />
+    </mxCell>
+    <mxCell id="c7" value="Amazon S3" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#7AA116;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;" vertex="1" parent="1">
+      <mxGeometry x="650" y="490" width="60" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="c7_label" value="Crisis Alerts&#xa;crisis_alerts&#xa;Parquet format" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="620" y="558" width="120" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════
+    COMPONENT 8 — Databricks (ML Model)
+    ═══════════════════════════════════════════════ -->
+    <mxCell id="num8" value="8" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;fontColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="850" y="160" width="28" height="28" as="geometry" />
+    </mxCell>
+    <mxCell id="c8" value="Databricks" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#E7157B;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.sagemaker;" vertex="1" parent="1">
+      <mxGeometry x="850" y="200" width="60" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="c8_label" value="ML Model&#xa;Random Forest&#xa;No-Show Prediction" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="820" y="268" width="120" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════
+    COMPONENT 9 — Amazon S3 (Inferences)
+    ═══════════════════════════════════════════════ -->
+    <mxCell id="num9" value="9" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;fontColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="1050" y="160" width="28" height="28" as="geometry" />
+    </mxCell>
+    <mxCell id="c9" value="Amazon S3" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#7AA116;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;" vertex="1" parent="1">
+      <mxGeometry x="1050" y="200" width="60" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="c9_label" value="Inferences&#xa;noshowflags&#xa;Flagged patients" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="1020" y="268" width="120" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════
+    COMPONENT 10 — Power BI Dashboard
+    ═══════════════════════════════════════════════ -->
+    <mxCell id="num10" value="10" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;fontColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="1280" y="160" width="28" height="28" as="geometry" />
+    </mxCell>
+    <mxCell id="c10" value="Power BI" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#F0A30A;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.quicksight;" vertex="1" parent="1">
+      <mxGeometry x="1280" y="200" width="60" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="c10_label" value="ClearMind&#xa;Operations&#xa;Dashboard" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="1255" y="268" width="110" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════
+    ARROWS — BATCH PATH (top)
+    ═══════════════════════════════════════════════ -->
+    <!-- 1 -> 2: Data source to S3 -->
+    <mxCell id="a1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="c1" target="c2" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <!-- 2 -> 5: S3 to Databricks Batch -->
+    <mxCell id="a2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="c2" target="c5" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <!-- 5 -> 6: Batch to KPI S3 -->
+    <mxCell id="a3" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="c5" target="c6" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <!-- 6 -> 8: KPI S3 to ML -->
+    <mxCell id="a4" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="c6" target="c8" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <!-- 8 -> 9: ML to Inferences S3 -->
+    <mxCell id="a5" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="c8" target="c9" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <!-- 9 -> 10: Inferences to Power BI -->
+    <mxCell id="a6" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="c9" target="c10" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <!-- 6 -> 10: KPI S3 to Power BI (direct) -->
+    <mxCell id="a7" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=1.5;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="c6" target="c10" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="680" y="140" />
+          <mxPoint x="1310" y="140" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════
+    ARROWS — STREAMING PATH (bottom)
+    ═══════════════════════════════════════════════ -->
+    <!-- 1 -> 3: Data source to Kinesis -->
+    <mxCell id="a8" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=1.5;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="c1" target="c3" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="200" y="550" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <!-- 3 -> 4: Kinesis to Spark Streaming -->
+    <mxCell id="a9" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="c3" target="c4" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <!-- 4 -> 7: Spark Streaming to Alert S3 -->
+    <mxCell id="a10" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="c4" target="c7" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <!-- 7 -> 10: Alert S3 to Power BI -->
+    <mxCell id="a11" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" source="c7" target="c10" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1310" y="520" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════
+    LEGEND TABLE (matches professor sample)
+    ═══════════════════════════════════════════════ -->
+    <mxCell id="legend_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+      <mxGeometry x="80" y="820" width="1430" height="110" as="geometry" />
+    </mxCell>
+
+    <!-- Legend headers -->
+    <mxCell id="lh1" value="Component" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=11;fontColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="80" y="820" width="200" height="36" as="geometry" />
+    </mxCell>
+    <mxCell id="lh2" value="Description" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=11;fontColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="280" y="820" width="400" height="36" as="geometry" />
+    </mxCell>
+    <mxCell id="lh3" value="Technology" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=11;fontColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="680" y="820" width="830" height="36" as="geometry" />
+    </mxCell>
+
+    <!-- Legend Row 1 -->
+    <mxCell id="lr1a" value="Data Sources (1)" style="text;html=1;strokeColor=#000000;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;spacingLeft=8;" vertex="1" parent="1">
+      <mxGeometry x="80" y="856" width="200" height="36" as="geometry" />
+    </mxCell>
+    <mxCell id="lr1b" value="Kaggle CSV (110,527 rows) + Synthetic EHR + Patient mood check-in events" style="text;html=1;strokeColor=#000000;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;spacingLeft=8;" vertex="1" parent="1">
+      <mxGeometry x="280" y="856" width="400" height="36" as="geometry" />
+    </mxCell>
+    <mxCell id="lr1c" value="AWS S3 · Python Faker · Kaggle" style="text;html=1;strokeColor=#000000;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;spacingLeft=8;" vertex="1" parent="1">
+      <mxGeometry x="680" y="856" width="830" height="36" as="geometry" />
+    </mxCell>
+
+    <!-- Legend Row 2 -->
+    <mxCell id="lr2a" value="Processing (4, 5, 8)" style="text;html=1;strokeColor=#000000;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;spacingLeft=8;" vertex="1" parent="1">
+      <mxGeometry x="80" y="892" width="200" height="36" as="geometry" />
+    </mxCell>
+    <mxCell id="lr2b" value="Stream processing · Batch KPI computation · ML model training and inference" style="text;html=1;strokeColor=#000000;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;spacingLeft=8;" vertex="1" parent="1">
+      <mxGeometry x="280" y="892" width="400" height="36" as="geometry" />
+    </mxCell>
+    <mxCell id="lr2c" value="Databricks · Apache Spark · Spark Structured Streaming · PySpark MLlib · scikit-learn" style="text;html=1;strokeColor=#000000;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;spacingLeft=8;" vertex="1" parent="1">
+      <mxGeometry x="680" y="892" width="830" height="36" as="geometry" />
+    </mxCell>
+
+    <!-- Legend Row 3 -->
+    <mxCell id="lr3a" value="Storage &amp; Output (2,6,7,9,10)" style="text;html=1;strokeColor=#000000;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;spacingLeft=8;" vertex="1" parent="1">
+      <mxGeometry x="80" y="928" width="200" height="36" as="geometry" />
+    </mxCell>
+    <mxCell id="lr3b" value="Raw data · KPI outputs · Crisis alerts · ML inferences · Dashboard visualization" style="text;html=1;strokeColor=#000000;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;spacingLeft=8;" vertex="1" parent="1">
+      <mxGeometry x="280" y="928" width="400" height="36" as="geometry" />
+    </mxCell>
+    <mxCell id="lr3c" value="Amazon S3 (Parquet) · Amazon Kinesis · Power BI Dashboard" style="text;html=1;strokeColor=#000000;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;spacingLeft=8;" vertex="1" parent="1">
+      <mxGeometry x="680" y="928" width="830" height="36" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>
